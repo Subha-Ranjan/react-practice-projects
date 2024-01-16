@@ -9,9 +9,12 @@ const initialData = {
   duration:10
 }
 function App() {
+
+//Lifted State & Handler Function
+//State
 const [userInputData, setUserInputData] = useState(initialData);
 const inputIsvalid = userInputData.duration >= 1;
-
+//Handler Function
 function handleChange(inputIdentifier, newVal){
   setUserInputData((prevData)=>
   {
@@ -21,9 +24,9 @@ function handleChange(inputIdentifier, newVal){
 }
   return (
    <>
-   <Header/>
-   <UserInput onHandleChange={handleChange} userInputData={userInputData}/>
-  {inputIsvalid ? <Output inputFromApp={userInputData}/> : <p className="center">Please Enter a Valid Duartion</p>}
+   <Header/> 
+   <UserInput onHandleChange={handleChange} userInputData={userInputData}/>    {/* // PASSING of Lifted State & Handler Function as PROP */}
+  {inputIsvalid ? <Output inputFromApp={userInputData}/> : <p className="center">Please Enter a Valid Duartion</p>} {/* // PASSING of Lifted State to another Component  */}
    
    </>
   )
