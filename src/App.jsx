@@ -29,6 +29,7 @@ function handleAddProject(projectData){ //onAdd data will be received here as an
       ...projectData,
       id: Math.random()
     }
+        
     return{
       ...prevState,
       projects: [...prevState.projects, newProject] //data population in projects array
