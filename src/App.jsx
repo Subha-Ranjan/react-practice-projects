@@ -29,9 +29,10 @@ function handleAddProject(projectData){ //onAdd data will be received here as an
       ...projectData,
       id: Math.random()
     }
-        
+
     return{
       ...prevState,
+      selectedProjectId:undefined,
       projects: [...prevState.projects, newProject] //data population in projects array
     }
   }) 
@@ -50,8 +51,8 @@ console.log(projectsState)
 
   return (
     <main className="h-screen my-8 flex gap-8">
-    <ProjectsSidebar onStartAddProject={handleStartAddProject}/>
- {content}
+    <ProjectsSidebar onStartAddProject={handleStartAddProject} projects={projectsState.projects}/>
+      {content}
     </main>
   );
 }
