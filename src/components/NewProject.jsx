@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Input from "./Input";
 
-export default function NewProject() {
+export default function NewProject({onAdd}) {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -9,10 +9,17 @@ export default function NewProject() {
   function handleSave(){
     const enteredTitle = title.current.value;
     const enteredDescription= description.current.value;
-    const enteredDurDate = dueDate.current.value;
+    const enteredDueDate = dueDate.current.value;
     //Validation
 
-    console.log(enteredTitle, enteredDescription,enteredDurDate)
+  onAdd(
+    {
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate
+    }
+  )
+    // console.log(enteredTitle, enteredDescription,enteredDueDate)
 
 
   }
@@ -32,7 +39,7 @@ export default function NewProject() {
         {/* <Input ref={title} label="Title: " /> ----------> just this wont work being a CUSTOM Component| ForwardRef needed Inside this CHILD CUSTOM comp*/}
         <Input ref={title} label="Title: " />
         <Input ref={description} label="Description: " textarea={true}/>
-        <Input ref={dueDate} label="Due Date: "/>
+        <Input type='date' ref={dueDate} label="Due Date: "/>
      </div>
     </div>
   );
