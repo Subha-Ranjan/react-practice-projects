@@ -2,11 +2,11 @@ import React from 'react'
 import Tasks from './Tasks'
 
 export default function SelectedProject({project, onDelete, onDeleteTask, onAddTask, tasks}) {
-  console.log("Tasks in Slected Prj", tasks)
-  console.log("Project", project)
+console.log("Tasks in Slected-Project Component", tasks)
 console.log("SelectedProject Data:", project)
 
-const filteredTasks = tasks.filter(t=>t.projectId===project.id);
+const filteredTasks = tasks.filter(t=>t.projectId===project.id);//project specific tasks
+
 console.log("Project Specific Tasks:===>", filteredTasks)
     const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US',{
         year: 'numeric',

@@ -120,8 +120,6 @@ console.log("Slected:",selectedProject)
     <main className="h-screen my-8 flex gap-8">
     <ProjectsSidebar onStartAddProject={handleStartAddProject} projects={projectsState.projects} onSelectProject={handleSelectProject} selectedProjectId={projectsState.selectedProjectId}/>
       {content}
-
-      
     </main>
   );
 }
